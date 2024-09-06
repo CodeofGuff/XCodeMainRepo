@@ -82,68 +82,6 @@ struct ContentView: View {
 	}
 }
 
-// Sheet View for editing PayRate and TaxRate
-struct SettingsView: View {
-	@Binding var payRate: Double
-	@Binding var taxRate: Double
-	
-	var body: some View {
-		NavigationView {
-			Form {
-				Section(header: Text("PayRate Settings")) {
-					HStack {
-						Text("Pay Rate")
-						Spacer()
-						TextField("Pay Rate", value: $payRate, format: .currency(code: "USD"))
-							.keyboardType(.decimalPad)
-							.frame(width: 100)
-					}
-				}
-				
-				Section(header: Text("Tax Settings")) {
-					HStack {
-						Text("Tax Rate (%)")
-						Spacer()
-						TextField("Tax Rate", value: $taxRate, format: .percent)
-							.keyboardType(.decimalPad)
-							.frame(width: 100)
-					}
-				}
-			}
-			.navigationTitle("Settings")
-			.toolbar {
-				ToolbarItem(placement: .cancellationAction) {
-					Button("Done") {
-						// Code to dismiss the view
-					}
-				}
-			}
-		}
-	}
-}
-
-// Sheet View for selecting a date range
-struct DateRangeView: View {
-	@Binding var startDate: Date
-	@Binding var endDate: Date
-	
-	var body: some View {
-		NavigationView {
-			Form {
-				DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
-				DatePicker("End Date", selection: $endDate, displayedComponents: .date)
-			}
-			.navigationTitle("Select Date Range")
-			.toolbar {
-				ToolbarItem(placement: .cancellationAction) {
-					Button("Done") {
-						// Code to dismiss the view
-					}
-				}
-			}
-		}
-	}
-}
 
 #Preview {
     ContentView()
