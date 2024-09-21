@@ -79,6 +79,7 @@ struct ContentView: View {
 				.navigationTitle("Paycheck Calculator")
 			}
 		}
+		.preferredColorScheme(.dark)
 	}
 }
 
