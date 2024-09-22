@@ -31,8 +31,8 @@ struct DateRangeView: View {
 }
 
 #Preview {
-	@State var startDate = Date()
-	@State var endDate = Calendar.current.date(byAdding: .day, value: 7, to: Date()) ?? Date()
+	@Previewable @State var startDate = Date()
+	@Previewable @State var endDate = Calendar.current.date(byAdding: .day, value: 7, to: Date()) ?? Date()
 	
 	return DateRangeView(startDate: $startDate, endDate: $endDate)
 }
