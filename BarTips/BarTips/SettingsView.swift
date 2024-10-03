@@ -11,7 +11,8 @@ import SwiftUI
 struct SettingsView: View {
 	@Binding var payRate: Double
 	@Binding var taxRate: Double
-	
+    @Environment(\.dismiss) var dismiss
+    
 	var body: some View {
 		NavigationView {
 			Form {
@@ -39,6 +40,7 @@ struct SettingsView: View {
 			.toolbar {
 				ToolbarItem(placement: .cancellationAction) {
 					Button("Done") {
+                        dismiss()
 						// Code to dismiss the view
 					}
 				}

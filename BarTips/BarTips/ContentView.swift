@@ -17,6 +17,7 @@ struct ContentView: View {
 	@State private var taxRate: Double = 0.29  // Default tax rate (20%)
 	@State private var selectedStartDate = Date()
 	@State private var selectedEndDate = Date()
+    @State private var dayTotalSaved: Double = 0
 	
 	// Calculates total earnings based on input
 	var dayTotal: Double {
@@ -45,17 +46,24 @@ struct ContentView: View {
 							TextField("Tips", value: $tipsEarned, format: .number)
 								.keyboardType(.decimalPad)
 								.frame(width: 100)
-						}
-					}
-					
-					Section(header: Text("Estimate Day Total")) {
-						HStack {
-							Text("Estimated Paycheck")
-							Spacer()
-							Text("$\(dayTotal, specifier: "%.2f")")
-						}
-					}
-					
+                        }
+                    }
+                    
+                    Section(header: Text("")) {
+                        HStack {
+                            Text("Estimate Day Total: ")
+                            Spacer()
+                            Text("$\(dayTotal, specifier: "%.2f")")
+                            
+                        }
+
+                        Button(action: {
+                            dayTotalSaved = dayTotal
+                        }) {
+                            Text("Save")
+                        }
+                    }
+                    
 					// Button to show the settings sheet
 					Button(action: {
 						showSettingsSheet = true
@@ -76,9 +84,15 @@ struct ContentView: View {
 						DateRangeView(startDate: $selectedStartDate, endDate: $selectedEndDate)
 					}
 				}
-				.navigationTitle("Paycheck Calculator")
-			}
+				.navigationTitle("Enter Shift Info: ")
+            }
 		}
+        Spacer()
+        VStack {
+            Form {
+                Text("How do I make this les then half the screen?")
+            }
+        }
 		.preferredColorScheme(.dark)
 	}
 }

@@ -11,6 +11,7 @@ import SwiftUI
 struct DateRangeView: View {
 	@Binding var startDate: Date
 	@Binding var endDate: Date
+    @Environment(\.dismiss) var dismiss
 	
 	var body: some View {
 		NavigationView {
@@ -22,7 +23,7 @@ struct DateRangeView: View {
 			.toolbar {
 				ToolbarItem(placement: .cancellationAction) {
 					Button("Done") {
-						// Code to dismiss the view
+						dismiss()
 					}
 				}
 			}
