@@ -17,7 +17,7 @@ struct ContentView: View {
 	@State private var taxRate: Double = 0.29  // Default tax rate (20%)
 	@State private var selectedStartDate = Date()
 	@State private var selectedEndDate = Date()
-    @State private var dayTotalSaved: Double = 0
+    @State private var dayTotalSaved = [Int]()
 	
 	// Calculates total earnings based on input
 	var dayTotal: Double {
@@ -56,12 +56,14 @@ struct ContentView: View {
                             Text("$\(dayTotal, specifier: "%.2f")")
                             
                         }
-
+                        // Save the current Day Pay - Save it into an Array, and allow it to be picked
                         Button(action: {
-                            dayTotalSaved = dayTotal
+                            dayTotalSaved.append(Int(dayTotal))
                         }) {
                             Text("Save")
                         }
+                        
+                        Text("\(dayTotalSaved)")
                     }
                     
 					// Button to show the settings sheet

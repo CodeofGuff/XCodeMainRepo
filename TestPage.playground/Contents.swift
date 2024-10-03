@@ -26,5 +26,5 @@ print(diane)
 //
 
 var array = [2, 3, 4, 5, 5]
-var array2 = [1, 3, 4, 2, 5, 5]
+var array2 = [1, 3, 4, 2, 5, 5] 
 
